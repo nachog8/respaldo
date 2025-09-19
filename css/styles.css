@@ -244,6 +244,16 @@ main {
     text-decoration: none;
     color: inherit;
     position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-link {
+    text-decoration: none;
+    color: inherit;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .product-card:hover {
@@ -541,5 +551,388 @@ main {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* Estilos para botones de carrito */
+.add-to-cart-btn {
+    margin: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    align-self: stretch;
+}
+
+.add-to-cart-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.add-to-cart-btn:active {
+    transform: translateY(0);
+}
+
+/* Estilos para el dropdown del carrito en React */
+.cart-dropdown-container {
+    position: relative;
+}
+
+.cart-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    width: 100%;
+    max-width: 400px;
+    max-height: 80vh;
+    overflow: hidden;
+    z-index: 1000;
+    margin-top: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.cart-dropdown .cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--background-white);
+}
+
+.cart-dropdown .cart-title {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.cart-dropdown .cart-icon-small {
+    font-size: 1.2rem;
+    color: var(--text-medium);
+}
+
+.cart-dropdown .cart-header h3 {
+    margin: 0;
+    font-family: var(--font-primary);
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.cart-dropdown .close-cart {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--text-medium);
+    padding: 4px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.cart-dropdown .close-cart:hover {
+    background-color: var(--border-color);
+    color: var(--text-dark);
+}
+
+.cart-dropdown .cart-items {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: var(--spacing-sm);
+}
+
+.cart-dropdown .cart-item {
+    display: flex;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+    align-items: flex-start;
+}
+
+.cart-dropdown .cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-dropdown .cart-item-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+}
+
+.cart-dropdown .cart-item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.cart-dropdown .cart-item-info h4 {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    line-height: 1.3;
+    font-weight: 500;
+}
+
+.cart-dropdown .cart-item-price {
+    margin: 0;
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+
+.cart-dropdown .cart-item-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    margin-top: var(--spacing-xs);
+}
+
+.cart-dropdown .cart-item-controls button {
+    background-color: var(--border-color);
+    border: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: var(--transition);
+    color: var(--text-dark);
+}
+
+.cart-dropdown .cart-item-controls button:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.cart-dropdown .cart-item-controls span {
+    min-width: 20px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+.cart-dropdown .cart-empty {
+    padding: var(--spacing-xl);
+    text-align: center;
+    color: var(--text-medium);
+}
+
+.cart-dropdown .cart-empty p {
+    margin-bottom: var(--spacing-lg);
+    font-size: 1rem;
+    color: var(--text-medium);
+}
+
+.cart-dropdown .cart-empty .btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.cart-dropdown .cart-empty .btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.cart-dropdown .cart-footer {
+    padding: var(--spacing-md);
+    border-top: 1px solid var(--border-color);
+    background-color: var(--background-white);
+}
+
+.cart-dropdown .cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    font-size: 1rem;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.cart-dropdown .total-price {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.cart-dropdown .cart-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.cart-dropdown .cart-actions .btn {
+    flex: 1;
+    padding: var(--spacing-sm);
+    font-size: 0.9rem;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.cart-dropdown .cart-actions .btn-secondary {
+    background-color: var(--background-light);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.cart-dropdown .cart-actions .btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.cart-dropdown .cart-actions .btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: 2px solid var(--primary-color);
+}
+
+.cart-dropdown .cart-actions .btn-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+/* Estilos para el formulario de contacto */
+.contact-form-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-lg);
+}
+
+.contact-info {
+    background-color: var(--background-light);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+}
+
+.contact-info h3 {
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-md);
+    font-family: var(--font-primary);
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.contact-item strong {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+
+.contact-item p {
+    margin: 0;
+    color: var(--text-medium);
+    line-height: 1.4;
+}
+
+.contact-form {
+    background-color: var(--background-white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.contact-form h3 {
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-md);
+    font-family: var(--font-primary);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    transition: var(--transition);
+    font-family: var(--font-secondary);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(139, 69, 19, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Responsive para el dropdown del carrito */
+@media (max-width: 768px) {
+    .cart-dropdown {
+        max-width: 350px;
+        right: -50px;
+    }
+    
+    .contact-form-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    .cart-dropdown {
+        max-width: 300px;
+        right: -100px;
+    }
+    
+    .cart-dropdown .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-xs);
+    }
+    
+    .cart-dropdown .cart-item-controls {
+        align-self: flex-end;
     }
 }
